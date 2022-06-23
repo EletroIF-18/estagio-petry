@@ -1,9 +1,20 @@
-#include <Arduino.h>
+double valorLido;
+uint16_t valorMedio;
+bool valorChaveamento;
 
-void setup() {
-  // put your setup code here, to run once:
+void setup(){
+  Serial.begin(115200);
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
+void loop(){
+  valorLido = analogRead(A0);
+  valorMedio = analogRead(A1);
+  valorLido = ((valorLido - valorMedio/2) * 5)/1023;
+  analogRead(A2) >= 100 ? valorChaveamento=true : valorChaveamento=false;
+
+
+
+  
+  //Serial.println(valorChaveamento);
+  //Serial.println(valorLido);
 }
